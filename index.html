@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamamia Massas & Pizzas - Cardápio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Mamamia</h1>
+        <p class="slogan">Italiana de coração, brasileira de alma</p>
+    </header>
+
+    <nav class="categorias">
+        <button class="btn-categoria ativo" data-categoria="salgadas">Pizzas Salgadas</button>
+        <button class="btn-categoria" data-categoria="doces">Pizzas Doces</button>
+        <button class="btn-categoria" data-categoria="bebidas">Bebidas</button>
+    </nav>
+
+    <main class="cardapio">
+        <!-- Pizza salgada de exemplo --> 
+        <div class="pizza" data-categoria="salgadas">
+            <img src="mussarela.png" alt="Pizza de Mussarela">
+            <div class="conteudo">
+                <h3>Mussarela</h3>
+                <p class="descricao">Generosa camada de queijo mussarela, bem cremosa e gratinada.</p>
+                <p class="preco">R$ 28,00</p>
+            </div>
+        </div>
+        <div class="pizza" data-categoria="salgadas">
+            <img src="mista.png" alt="Pizza Mista">
+            <div class="conteudo">
+                <h3>Mista</h3>
+                <p class="descricao">Uma combinação deliciosa de mussarela, presunto e tomete, equilibrando o sabor e a leveza.</p>
+                <p class="preco">R$ 28,00</p>
+            </div>
+        </div>
+        <div class="pizza" data-categoria="salgadas">
+            <img src="calabresa.jpeg" alt="Pizza de Calabresa">
+            <div class="conteudo">
+                <h3>Calabresa</h3>
+                <p class="descricao">Calabresa fatiada com cebola e um toque especial da casa.</p>
+                <p class="preco">R$ 30,00</p>
+            </div>
+        </div>
+        <div class="pizza" data-categoria="salgadas">
+            <img src="frango.png" alt="Pizza de Frango com Requeijão">
+            <div class="conteudo">
+                <h3>Frango com Requeijão</h3>
+                <p class="descricao">Frango desfiado bem temperado com requeijão cremoso que derrete na boca.</p>
+                <p class="preco">R$ 32,00</p>
+            </div>
+        </div>
+        <div class="pizza" data-categoria="salgadas">
+            <img src="carne_sol.jpeg" alt="Pizza de Carne de Sol">
+            <div class="conteudo">
+                <h3>Carne de Sol</h3>
+                <p class="descricao">Sabor nordestino marcante com carne do sol desfiada e queijo coalho douradinho.</p>
+                <p class="preco">R$ 35,00</p>
+            </div>
+        </div>
+        <div class="pizza" data-categoria="doces">
+            <img src="namorados.png" alt="Pizza Namorados">
+            <div class="conteudo">
+                <h3>Namorados</h3>
+                <p class="descricao">Chocolate derretido com morango e um toque especial de queijo.</p>
+                <p class="preco">R$ 33,00</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
