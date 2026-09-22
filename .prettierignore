@@ -1,0 +1,36 @@
+# Dependências
+node_modules
+.pnp
+.pnp.js
+
+# Builds e output
+dist
+build
+out
+.next
+.nuxt
+.output
+coverage
+
+# Cache
+.cache
+.turbo
+.parcel-cache
+
+# Arquivos gerados/lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.min.js
+*.min.css
+
+# Configs e envs sensíveis
+.env
+.env.*
+
+# Outros
+.vscode
+.idea
+*.log
+public
+CHANGELOG.md
