@@ -9,6 +9,13 @@
     --vermelho: #c0392b;
     --bege: #f5efe6;
     --texto-escuro: #2b2b2b;
+
+    /* Tempo das animações dos cards.
+       Os mesmos valores são lidos pelo script.js, então basta mexer aqui
+       para o JavaScript esperar exatamente o tempo da animação de saída. */
+    --duracao-card-saida: 0.25s;
+    --duracao-card-entrada: 0.4s;
+    --curva-card: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -21,16 +28,25 @@ body {
     background-color: var(--verde);
     color: white;
     text-align: center;
-    padding: 30px 20px;
+    padding: 48px 20px;
+    border-bottom: 4px solid var(--vermelho);
 }
 
 .cabecalho h1 {
+    font-family: 'Lobster Two', cursive;
     font-size: 2.5em;
 }
 
 .slogan {
     font-style: italic;
+    font-family: 'Lexend', sans-serif;
     margin-top: 5px;
+}
+
+.categorias-wrap {
+    background-color: var(--bege);
+    padding: 20px 0;
+    text-align: center;
 }
 
 .categorias {
@@ -39,6 +55,13 @@ body {
     gap: 10px;
     padding: 15px;
     background-color: white;
+}
+
+.titulo-categorias {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    margin-right: 10px;
+    align-self: center;
 }
 
 .btn-categoria {
@@ -52,12 +75,24 @@ body {
 }
 
 .btn-categoria.ativo {
+    animation: destaque 0.6s ease forwards;
     background-color: var(--verde);
     color: white;
 }
 
+@keyframes destaque {
+    0% {
+        background-color: white;
+        color: var(--verde);
+    }
+    100% {
+        background-color: var(--verde);
+        color: white;
+    }
+}
+
 .cardapio {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px;
 
@@ -72,35 +107,47 @@ ANIMAÇÃO DOS CARDS
 
 .pizza {
     width: 100%;
+    display: flex;
     background-color: white;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
-    opacity: 0;
-    animation: aparecer 0.8s ease forwards;
+    transform: translateY(0) scale(1);
+    opacity: 1;
 
-    transition: scale 0.3s ease;
+    transition:
+        transform var(--duracao-card-entrada) var(--curva-card),
+        opacity var(--duracao-card-entrada) var(--curva-card),
+        box-shadow var(--duracao-card-entrada) var(--curva-card);
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+/* Card da categoria anterior: sai de cena mais rápido do que entra. */
+.pizza.saindo {
+    transition-duration: var(--duracao-card-saida);
+}
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Estado inicial e final das animações */
+.pizza.saindo,
+.pizza.entrando {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+/* Só depois da animação de saída o card sai do fluxo do grid. */
+.pizza.oculto {
+    display: none;
 }
 
 /* =========================
 HOVER
 ========================= */
 
-.expand:hover {
-    scale: 1.03;
+.pizza:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 .pizza img {
@@ -117,7 +164,7 @@ DESKTOP
 @media (min-width: 700px) {
 
     .cardapio {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .pizza {
@@ -126,6 +173,41 @@ DESKTOP
 
     .pizza img {
         width: 100%;
+    }
+
+    .btn-categoria.ativo {
+        animation: levitate 0.6s ease forwards;
+    }
+
+    @keyframes levitate {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .btn-categoria.ativo::after {
+        content: '';
+        display: block;
+        width: 40%;
+        height: 3px;
+        background-color: var(--vermelho);
+        margin-top: 3px;
+        border-radius: 2px;
+        justify-self: center;
+
+        animation: underline 0.5s ease forwards;
+    }
+
+    @keyframes underline {
+        from {
+            width: 0;
+        }
+        to {
+            width: 40%;
+        }
     }
 }
 
