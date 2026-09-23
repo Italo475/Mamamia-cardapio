@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamamia Massas & Pizzas - Cardápio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="cabecalho">
         <h1>Mamamia</h1>
         <p class="slogan">Italiana de coração, brasileira de alma</p>
     </header>
-
-    <nav class="categorias">
-        <button class="btn-categoria ativo" data-categoria="salgadas">Pizzas Salgadas</button>
-        <button class="btn-categoria" data-categoria="doces">Pizzas Doces</button>
-        <button class="btn-categoria" data-categoria="bebidas">Bebidas</button>
-    </nav>
+    <div class="categorias-wrap">
+        <h2 class="titulo-categorias">Categorias</h2>
+        <nav class="categorias">
+            <button class="btn-categoria ativo" data-categoria="salgadas">Pizzas Salgadas</button>
+            <button class="btn-categoria" data-categoria="doces">Pizzas Doces</button>
+            <button class="btn-categoria" data-categoria="bebidas">Bebidas</button>
+        </nav>
+    </div>
 
     <main class="cardapio">
         <!-- Pizza salgada de exemplo --> 
-        <div class="pizza expand" data-categoria="salgadas">
+        <div class="pizza" data-categoria="salgadas">
             <img src="assets/mussarela.png" alt="Pizza de Mussarela">
             <div class="conteudo">
                 <h3>Mussarela</h3>
@@ -28,7 +34,7 @@
                 <p class="preco">R$ 28,00</p>
             </div>
         </div>
-        <div class="pizza expand" data-categoria="salgadas">
+        <div class="pizza" data-categoria="salgadas">
             <img src="assets/mista.png" alt="Pizza Mista">
             <div class="conteudo">
                 <h3>Mista</h3>
@@ -36,7 +42,7 @@
                 <p class="preco">R$ 28,00</p>
             </div>
         </div>
-        <div class="pizza expand" data-categoria="salgadas">
+        <div class="pizza" data-categoria="salgadas">
             <img src="assets/calabresa.jpeg" alt="Pizza de Calabresa">
             <div class="conteudo">
                 <h3>Calabresa</h3>
@@ -44,7 +50,7 @@
                 <p class="preco">R$ 30,00</p>
             </div>
         </div>
-        <div class="pizza expand" data-categoria="salgadas">
+        <div class="pizza" data-categoria="salgadas">
             <img src="assets/frango.png" alt="Pizza de Frango com Requeijão">
             <div class="conteudo">
                 <h3>Frango com Requeijão</h3>
@@ -52,7 +58,7 @@
                 <p class="preco">R$ 32,00</p>
             </div>
         </div>
-        <div class="pizza expand" data-categoria="salgadas">
+        <div class="pizza" data-categoria="salgadas">
             <img src="assets/carne_sol.jpeg" alt="Pizza de Carne de Sol">
             <div class="conteudo">
                 <h3>Carne de Sol</h3>
@@ -60,7 +66,7 @@
                 <p class="preco">R$ 35,00</p>
             </div>
         </div>
-        <div class="pizza expand" data-categoria="doces">
+        <div class="pizza" data-categoria="doces">
             <img src="assets/namorados.png" alt="Pizza Namorados">
             <div class="conteudo">
                 <h3>Namorados</h3>
